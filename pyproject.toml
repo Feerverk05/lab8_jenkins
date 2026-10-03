@@ -1,0 +1,13 @@
+# Налаштування Pylint для етапу Static Code Analysis (Quality Gate)
+[tool.pylint.main]
+# Збірка зупиняється, якщо оцінка коду нижча за 8 з 10
+fail-under = 8.0
+
+[tool.pylint."messages control"]
+disable = [
+    "import-error",           # лінтинг іде ДО встановлення залежностей (етап Install), тож selenium/behave ще не встановлені
+    "missing-function-docstring",  # кроки behave описані самим текстом декоратора
+]
+
+[tool.pylint.format]
+max-line-length = 120
